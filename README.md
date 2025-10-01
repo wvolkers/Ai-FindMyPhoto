@@ -24,9 +24,8 @@ def main():
    connected_piece=extractconnected(puzzle)
    unconnected_pieces=extractunconnected(puzzle)
 
-   for p in unconnected_pieces:
-      unconnected_piece = unconected_pieces[i]
-      location = try_fit(puzzle, unconnected_piece)
+   for i,piece in enummerate(unconnected_pieces):
+      location = try_fit(connected_piece, piece)
       if location:
          break
 
@@ -38,12 +37,12 @@ main()
 ```
 
 ## Data sources and AI methods
+* object detection and image segmentation techniques
+* 
 
 ## Challenges
 
-
 ## What next?
-
 
 ## Acknowledgments
 * wikimedia
