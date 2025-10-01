@@ -49,4 +49,6 @@ main()
 
 ## Acknowledgments
 * wikimedia
+* similar: https://github.com/OmarMusayev/puzzlesolver
+
 
