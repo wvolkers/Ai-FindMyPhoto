@@ -1,32 +1,23 @@
 <!-- This is based on the markdown template for the final project of the Building AI course, created by Reaktor Innovations and University of Helsinki -->
 
-# AiPuzzleBuddy
+# AiJigsawpuzzleBuddy
 ## Summary
 
-AiPuzzleBuddy will allow you to make a picture of your puzzle pieces along with the partly finished puzzle. Based on this picture it will generate an advice on placement of a next puzzle piece.
+AiJigsawpuzzleBuddy will allow you to make a picture of your puzzle pieces along with the partly finished puzzle. Based on this picture it will generate an advice on placement of a next puzzle piece.
 
 Final project for the Building AI course
 
 ## Background
 
-Which problems does your idea solve? How common or frequent is this problem? What is your personal motivation? Why is this topic important or interesting?
-
-This is how you make a list, if you need one:
-* problem 1
-* problem 2
-* etc.
-
+You might get stuck while trying to complete a puzzle, none of the pieces seem to fit! You might ask a friend or a family member to help you. However, most people seem to really dislike your hobby. This is where AiJigsawpuzzleBuddy comes to the rescue!
 
 ## How is it used?
 
-Describe the process of using the solution. In what kind situations is the solution needed (environment, time, etc.)? Who are the users, what kinds of needs should be taken into account?
+You make a picture of the puzzle pieces along with the partly finished puzzle.
 
 Images will make your README look nice!
 Once you upload an image to your repository, you can link link to it like this (replace the URL with file path, if you've uploaded an image to Github.)
-![Cat](https://upload.wikimedia.org/wikipedia/commons/5/5e/Sleeping_cat_on_her_back.jpg)
-
-If you need to resize images, you have to use an HTML tag, like this:
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Sleeping_cat_on_her_back.jpg" width="300">
+![Puzzle](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Jigsaw_puzzle_solving_1.jpg/960px-Jigsaw_puzzle_solving_1.jpg)
 
 This is how you create code examples:
 ```
