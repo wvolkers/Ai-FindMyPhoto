@@ -5,7 +5,7 @@
 
 Ai-Jigsawpuzzle-Buddy will allow you to make a picture of your puzzle pieces along with the partly finished puzzle. Based on this picture it will generate an advice on placement of a next puzzle piece.
 
-Final project for the Building AI course
+- Final project for the Building AI course -
 
 ## Background
 
