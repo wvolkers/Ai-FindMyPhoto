@@ -24,13 +24,16 @@ def main():
    connected_piece=extractconnected(puzzle)
    unconnected_pieces=extractunconnected(puzzle)
 
-   for i,piece in enummerate(unconnected_pieces):
+   piece=None
+   location=None
+   for p in unconnected_pieces:
+      piece=p
       location = try_fit(connected_piece, piece)
       if location:
          break
 
    if location:
-      mark(picture, unconnected_piece)
+      mark(picture, piece)
       mark(picture, location)
 
 main()
