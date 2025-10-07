@@ -56,13 +56,17 @@ python
 
 ### Prepare the demo
 
+#### Get the sourcecode
+
+Use "git clone" or download and extract the project files and folders to a location of your choosing.
+
 #### Load the code on the Python prompt 
 
 Copy/paste this to your Python command prompt ( >>> ) and press enter.
 
-Note: modify 'dir_base' to match your folder. Use double backslashes ( \\\\ ) on Windows.
+Note: modify 'dir_base' to match your folder. Use double backslashes ( \\\\ ) or forward slashes ( / ) on Windows.
 
-Note: this will initialize the libraries, variables and functions, it will not start anything other than that.
+Note: this will initialize the libraries, variables and functions, it will not start the demo.
 
 ```
 dir_base = 'C:\\Users\\wilbert\\Documents\\Wilbert_git\\Ai-FindMyPhoto'
@@ -117,7 +121,7 @@ Example output log:
 
 ### Your own photo collection
 
-For your own photo collection you need to point "dir_input" to your own location. This directory is then searched recursively for "jpg" images. You will also need "known faces" and assign an identity by placing these in a subfolder, for example "./input_knownpersons/klaas/klaas1.jpg". You can collect faces with below function.
+For your own photo collection you need to point "dir_input" to your own location. This directory is then searched recursively for "jpg" images. You will also need "known faces" and assign an identity by placing these in a subfolder, for example "./input_knownpersons/klaas/klaas1.jpg". You can collect faces with below function. Results are stord in "./input_knownpersons/*.jpg"
 
 Copy/paste this to your Python command prompt ( >>> ) and press enter. Press CTRL+C to stop the proces.
 
