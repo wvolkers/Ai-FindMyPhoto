@@ -10,7 +10,7 @@ This is the final project for the freely available "Building AI" course (https:/
 
 ## Background
 
-This is a working demo. You should be able to make it run with minor effort. It is based on PyTorch, TensorFlow, DeepFace and other freely available libraries.
+<b>This is a working demo.</b> You should be able to make it run with minor effort. It is based on PyTorch, DeepFace and other freely available libraries. It uses a number of example photo's that are downloaded while preparing the demo. A number of ""known" faces are included in this project.
 
 ## How is it used?
 
@@ -30,11 +30,11 @@ PyTorch
 * If you have an NVIDIA graphics card, you can use the CUDA version to allow your GPU beiing for extra processing power
 * Select your configuration on the webpage and use the displayed pip install command
 
-OpenCV
-* https://opencv.org/
-
 DeepFace
 * https://github.com/serengil/deepface
+
+OpenCV
+* https://opencv.org/
 
 MatplotLib
 * https://matplotlib.org/
@@ -58,7 +58,7 @@ python
 
 #### Load the code on the Python prompt 
 
-Copy/paste this to your Python command prompt (>>>) and press enter:
+Copy/paste this to your Python command prompt (>>>) and press enter.
 
 Note: modify 'dir_base' to match your folder.
 
@@ -71,7 +71,7 @@ exec(open( dir_base+'/FindMyPhoto.py' ).read())
 
 #### Download example files --> ./input/*.jpg
 
-Copy/paste this to your Python command prompt (>>>) and press enter:
+Copy/paste this to your Python command prompt (>>>) and press enter.
 
 Note: these are +-150 free-to-use photos of the Dutch royal family.
 
@@ -83,24 +83,43 @@ download_files(url_prefix, url_list, dir_input)
 
 #### Start the proces
 
+Copy/paste this to your Python command prompt (>>>) and press enter. Press CTRL+C to stop the proces.
+
 Note: if this is the first time you do this, then additional models will be downloaded automatically.
 
 ```
 recognize_faces_show()
 ```
 
-OpenCV marked image:
+<hr>
 
-<img src="example_1_image.jpg" width="500" title="OpenCV marked image" />
+Resulting image displayed with OpenCV. Recognized faces are marked green along with the % confidence. "Unknown" faces are marked yellow.
 
-Matplot-grid with comparison results:
+<img src="example_1_image.jpg" width="700" title="OpenCV marked image" />
 
-<img src="example_1_match.jpg" width="500" title="Matplot-grid with comparison results" />
+<hr>
+
+Matplot-grid with comparison results. "Known" faces are displayed in the top-row from left to right, faces that are found in the photo are displayed on the left from top to bottom. Best confidence is marked green, acceptable confidence is marked yellow.
+
+<img src="example_1_match.jpg" width="700" title="Matplot-grid with comparison results" />
+
+<hr>
 
 Example output log:
 
-<img src="example_2_log.jpg" width="500" title="Example output log" />
+<img src="example_2_log.jpg" width="700" title="Example output log" />
 
+<hr>
+
+### Your own photo collection
+
+For your own photo collection you need to point "dir_input" to your own location. This directory is then searched recursively for "jpg" images. You will also need "known faces" and assign an identity by placing these in a subfolder, for example "./input_knownpersons/klaas/klaas1.jpg". You can collect faces with below function.
+
+Copy/paste this to your Python command prompt (>>>) and press enter. Press CTRL+C to stop the proces.
+
+```
+collect_person_faces()
+```
 
 ## Data sources and AI methods
 
@@ -111,9 +130,9 @@ Source: https://www.koninklijkhuis.nl/foto-en-video/fotos-koninklijk-gezin
 
 ## Challenges
 
-It is quite easy to get a face recogniton program together based on pre-trained models and available libraries like DeepFace. Finding faces in images works quite well but very obvious faces might still be missed. There are different results in subsequential runs and sometimes the functions seem to return invalid face-areas.
+It is quite easy to get a face recogniton program together based on pre-trained models, libraries like DeepFace and available examples. Finding faces in images works quite well but very obvious faces might still be missed. There are different results in subsequential runs and sometimes the functions seem to return invalid face-areas.
 
-Nvidia CUDA allows you to use your Nvidia videocard for extra processing power (if you have one). I was not looking for realtime results but even with CUDS, the indexing of a large number of photoes takes conciderable time. 
+Nvidia CUDA allows you to use your Nvidia videocard for extra processing power (if you have one). I was not looking for realtime results but even with CUDS, the indexing of a large number of photos takes conciderable time. 
 
 Comparing faces (verify) regularly misses the mark. However, there is still a lot that can be tried to improve matches, for example: normalize image size, use grayscale, change parameters, or try other models.
 
