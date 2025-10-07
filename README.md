@@ -10,7 +10,7 @@ This is the final project for the freely available "Building AI" course (https:/
 
 ## Background
 
-<b>This is a working demo.</b> You should be able to make it run with minor effort. It is based on PyTorch, DeepFace and other freely available libraries. It uses a number of example photo's that are downloaded while preparing the demo. A number of ""known" faces are included in this project.
+<b>This is a working demo.</b> You should be able to make it run with minor effort. It is based on PyTorch, DeepFace and other freely available libraries. It uses a number of example photo's that are downloaded while preparing the demo. A number of "known faces" are included in this project.
 
 ## How is it used?
 
