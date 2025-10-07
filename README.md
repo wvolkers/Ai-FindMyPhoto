@@ -60,12 +60,12 @@ python
 
 Copy/paste this to your Python command prompt (>>>) and press enter.
 
-Note: modify 'dir_base' to match your folder.
+Note: modify 'dir_base' to match your folder. Use double backslashes (\\) on Windows.
 
 Note: this will initialize the libraries, variables and functions, it will not start anything other than that.
 
 ```
-dir_base = r'C:\Users\wilbert\Documents\Wilbert_git\Ai-FindMyPhoto'
+dir_base = 'C:\\Users\\wilbert\\Documents\\Wilbert_git\\Ai-FindMyPhoto'
 exec(open( dir_base+'/FindMyPhoto.py' ).read())
 ```
 
