@@ -349,7 +349,7 @@ def collect_person_faces():
                     cv2.imwrite(pfilename+str(j)+'.jpg', face['img_final'])
                     with open(pfilename+str(j)+'.py', 'w', encoding='utf-8') as f:
                         pprint({'numfaces' : len(faces['facesarray']),
-                                'score':round(face['score']*100),
+                                'score':round(face['score']),
                                 'file':str(file)}, f, width=160, compact=True, sort_dicts=False)
 
 
