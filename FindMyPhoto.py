@@ -9,6 +9,7 @@
 #### Note: modify 'dir_base' and run these lines your python prompt
 
 dir_base = 'C:\\Users\\wilbert\\Documents\\Wilbert_git\\Ai-FindMyPhoto'
+
 exec(open( dir_base + '/FindMyPhoto.py' ).read())
 
 #### 2. download example files --> ./input/*.jpg
@@ -32,6 +33,8 @@ collect_person_faces()
 
 recognize_faces_show()
 
+recognize_faces_show('C://Users//wilbert//Documents//Wilbert_git//Ai-FindMyPhoto//input//zomerfotosessie-2019-4-koninklijk-gezin-4000px.jpg')
+
 '''
 
 import os
@@ -41,6 +44,7 @@ import shutil
 import requests
 from io import StringIO
 import matplotlib.pyplot as plt
+import matplotlib.gridspec as gridspec
 import numpy as np
 import cv2
 import torch
@@ -96,57 +100,58 @@ def normalize_filename(dir_input,file):
     return normalize_name(n_file_dir+file.stem)
 
 
-def resize_with_aspect_ratio(image, width=None, height=None, inter=cv2.INTER_AREA):
-    dim = None
-    (h, w) = image.shape[:2]
-    if width is None and height is None:
-        return image
-    if width is None:
-        r = height / float(h)
-        dim = (int(w * r), height)
-    else:
-        r = width / float(w)
-        dim = (width, int(h * r))
-    return cv2.resize(image, dim, interpolation=inter)
+def create_plot(ax,plot):
+    ax.axis('off')
+    if 'title' in plot:
+        ax.set_title(plot['title'], pad=0)
+    if 'img' in plot:
+        #Note: OpenCV uses Blue-Green-Red order, convert to RGB for matplotlib
+        ax.imshow(cv2.cvtColor(plot['img'], cv2.COLOR_BGR2RGB))
+    if 'label1' in plot:
+        ax.text(0.5, 0.9, plot['label1'], horizontalalignment='center', verticalalignment='top', transform=ax.transAxes)
+    if 'label2' in plot:
+        ax.text(0.5, 0.5, plot['label2'], horizontalalignment='center', verticalalignment='center', transform=ax.transAxes)
+    if 'label3' in plot:
+        ax.text(0.5, 0.1, plot['label3'], horizontalalignment='center', verticalalignment='bottom', transform=ax.transAxes)
+    if 'emphasize' in plot:
+        if plot['emphasize']>=1:
+            ax.axis('on')
+            ax.get_xaxis().set_visible(False)
+            ax.get_yaxis().set_visible(False)
+            if plot['emphasize']>=2:
+                ax.set_facecolor('lightgreen')
+            else:
+                ax.set_facecolor('lightyellow')
 
 
-def show_subplots(subplotsarray):
+def show_subplots(topplot,subplotsarray):
     rows=len(subplotsarray)
     cols=2
     for r in range(rows):
         cols=int(np.maximum(cols,len(subplotsarray[r])))
     rows=int(np.maximum(rows,2))
-    #Note: subplots with cols=1 or rows=1 returns a 1-dimensional array, so >=2
-    fig, axs = plt.subplots(ncols=cols, nrows=rows)
+    
+    top_plot_rows = 5
+    fig = plt.figure(figsize=(cols, rows + top_plot_rows))
+    gs = gridspec.GridSpec(rows + top_plot_rows, cols, figure=fig)
+
+    if 'title' in topplot:
+        plt.get_current_fig_manager().set_window_title(topplot['title'])
+
+    axtop = fig.add_subplot(gs[0:top_plot_rows, :])
+    axtop.axis('off')
+    create_plot(axtop,topplot)
 
     for r in range(rows):
         for c in range(cols):
-            axs[r,c].axis('off')
+            ax = fig.add_subplot(gs[r + top_plot_rows, c])
             if r<len(subplotsarray) and c<len(subplotsarray[r]):
-                if 'title' in subplotsarray[r][c]:
-                    axs[r,c].set_title(subplotsarray[r][c]['title'], pad=0)
-                if 'img' in subplotsarray[r][c]:
-                    #Note: OpenCV uses Blue-Green-Red order, convert to RGB for matplotlib
-                    axs[r, c].imshow(cv2.cvtColor(subplotsarray[r][c]['img'], cv2.COLOR_BGR2RGB))
-                if 'label1' in subplotsarray[r][c]:
-                    axs[r,c].text(0.5, 0.8, subplotsarray[r][c]['label1'], horizontalalignment='center', verticalalignment='top', transform=axs[r,c].transAxes)
-                if 'label2' in subplotsarray[r][c]:
-                    axs[r,c].text(0.5, 0.5, subplotsarray[r][c]['label2'], horizontalalignment='center', verticalalignment='center', transform=axs[r,c].transAxes)
-                if 'label3' in subplotsarray[r][c]:
-                    axs[r,c].text(0.5, 0.2, subplotsarray[r][c]['label3'], horizontalalignment='center', verticalalignment='bottom', transform=axs[r,c].transAxes)
-                if 'emphasize' in subplotsarray[r][c]:
-                    if subplotsarray[r][c]['emphasize']>=1:
-                        axs[r,c].axis('on')
-                        axs[r,c].get_xaxis().set_visible(False)
-                        axs[r,c].get_yaxis().set_visible(False)
-                        if subplotsarray[r][c]['emphasize']>=2:
-                            axs[r,c].set_facecolor('lightgreen')
-                        else:
-                            axs[r,c].set_facecolor('lightyellow')
+                create_plot(ax,subplotsarray[r][c])
 
-    plt.get_current_fig_manager().resize(cols*150,rows*150)
+    plt.get_current_fig_manager().resize(cols*140,(rows+top_plot_rows)*110)
+    plt.tight_layout()
     plt.show(block=False)
-    plt.pause(0.001) #allow to window to update
+    plt.pause(0.1) #allow to window to update
 
 
 def mark_image(image,label,face,color):
@@ -184,7 +189,7 @@ def mark_image(image,label,face,color):
     cv2.putText(image, label, (x, y), font, fontScale=font_scale, color=(0, 0, 0), thickness=thick)
 
 
-def show_faces_marked(image,faces):
+def mark_image_faces(image,faces):
     # Mark the detected faces and show the image
     for i,face in enumerate(faces['facesarray']):
         if 'confidence' in face and face['confidence']>recognize_minimum_confidence:
@@ -192,15 +197,8 @@ def show_faces_marked(image,faces):
         else:
             mark_image(image,'face' + str(i),face,(0, 255, 255))
 
-    if faces['w']>faces['h']:
-        resized = resize_with_aspect_ratio(image, width=1440)
-    else:
-        resized = resize_with_aspect_ratio(image, height=1080)
-    cv2.imshow('Face Detection', resized)
-    cv2.waitKey(1) # allow window to update
 
 def close_all_windows():
-    cv2.destroyAllWindows()
     plt.close('all')
 
 
@@ -539,35 +537,40 @@ def download_files(url_prefix, url_list, dir_output):
             download_file(url_prefix + url, dir_output)
 
 
-
-
 # Recognize faces and show results ########################################################
 #
 # compare faces in a number of photos against a collection of known faces
 
-def recognize_faces_show():
+def recognize_faces_show(singlefile=None):
 
+    close_all_windows()
+    
     #all known persons
     known_faces=read_known_faces(dir_known_persons)
 
     plt.ion() #interactive mode to allow updating the plot while running
+    
     plot_personsrow=[{'topleft':True}]
     for person in known_faces:
         for j,image in enumerate(known_faces[person]):
             plot_personsrow.append({'title':person+str(j), 'img':image['img']})
 
-    #index all photos
-    allimages = []
-    for file in list(Path(dir_input).rglob('*.*')):
-        if file.is_file and file.suffix.lower() in ['.jpg', '.jpeg']:
-            allimages.append(file)
+    if singlefile:
+        nimages=[ singlefile ]
+        n=1
+    else:
+        #index all photos
+        allimages = []
+        for file in list(Path(dir_input).rglob('*.*')):
+            if file.is_file and file.suffix.lower() in ['.jpg', '.jpeg']:
+                allimages.append(file)
 
-    n=len(allimages)
-    log('allimages:',n)
+        n=len(allimages)
+        log('allimages:',n)
 
-    #random order, so it doesnt start with the same images with each run
-    nindexes=np.random.choice(range(len(allimages)), size=n, replace=False)
-    nimages=[ allimages[i] for  i in nindexes ]
+        #random order, so it doesnt start with the same images with each run
+        nindexes=np.random.choice(range(len(allimages)), size=n, replace=False)
+        nimages=[ allimages[i] for  i in nindexes ]
 
     #compare
     mostfacesfile=None
@@ -595,8 +598,10 @@ def recognize_faces_show():
 
                 #all known images of a person
                 for j,faceknown in enumerate(known_faces[person]):
+                    plt.pause(0.1) #allow for some plot interaction
+                    
                     #compare
-                    verifyresult = DeepFace.verify(faceknown['img'], face['img_final'], enforce_detection=False)
+                    verifyresult = DeepFace.verify(faceknown['img'], face['img_final'], enforce_detection=False)                    
                     log('verify',person, j,'confidence',verifyresult['confidence']
                         ,'distance',verifyresult['distance'], 'threshold',verifyresult['threshold'])
 
@@ -649,11 +654,10 @@ def recognize_faces_show():
 
             #Show the result
             close_all_windows()
+            
+            image=cv2.imdecode(np.fromfile(file, np.uint8), cv2.IMREAD_UNCHANGED)
+            mark_image_faces(image,faces)
 
             #show comparison result
-            show_subplots(plot)
-
-            #faces and features
-            image=cv2.imdecode(np.fromfile(file, np.uint8), cv2.IMREAD_UNCHANGED)
-            show_faces_marked(image,faces)
+            show_subplots({'title':nname, 'img':image},plot)
 

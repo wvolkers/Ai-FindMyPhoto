@@ -105,6 +105,10 @@ Matplot-grid with comparison results. "Known" faces are displayed in the top-row
 
 <hr>
 
+<img src="example_3.jpg" width="700" title="Matplot-grid with comparison results" />
+
+<hr>
+
 Example output log:
 
 <img src="example_2_log.jpg" width="700" title="Example output log" />
