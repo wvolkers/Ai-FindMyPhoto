@@ -117,7 +117,7 @@ Example output log:
 
 ### Your own photo collection
 
-For your own photo collection you need to point "dir_input" to your own location. This directory is then searched recursively for "jpg" images. You will also need "known faces" and assign an identity by placing these in a subfolder, for example "./input_knownpersons/klaas/klaas1.jpg". You can collect faces with below function.
+For your own photo collection you need to point "dir_input" to your own location. This directory is then searched recursively for "jpg" images. You will also need "known faces" and assign an identity by placing these in a subfolder, for example "./input_knownpersons/klaas/klaas1.jpg". You can collect faces with below function. Results are stord in "./input_knownpersons/*.jpg"
 
 Copy/paste this to your Python command prompt ( >>> ) and press enter. Press CTRL+C to stop the proces.
 
