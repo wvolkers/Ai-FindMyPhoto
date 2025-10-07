@@ -89,6 +89,16 @@ Note: if this is the first time you do this, then additional models will be down
 recognize_faces_show()
 ```
 
+OpenCV marked image:
+<img src="example_1_image.jpg" width="300" title="OpenCV marked image" />
+
+Matplot-grid with comparison results:
+<img src="example_1_match.jpg" width="300" title="Matplot-grid with comparison results" />
+
+Example output log:
+<img src="example_2_log.jpg" width="300" title="Example output log" />
+
+
 ## Data sources and AI methods
 
 PyTorch, TensorFlow and DeepFace were used along with other mainstream libraries.
