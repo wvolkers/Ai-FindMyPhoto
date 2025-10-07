@@ -91,20 +91,25 @@ Note: if this is the first time you do this, then additional models will be down
 recognize_faces_show()
 ```
 
+<hr>
+
 Resulting image displayed with OpenCV. Recognized faces are marked green along with the % confidence. "Unknown" faces are marked yellow.
 
 <img src="example_1_image.jpg" width="700" title="OpenCV marked image" />
 
+<hr>
 
 Matplot-grid with comparison results. "Known" faces are displayed in the top-row from left to right, faces that are found in the photo are displayed on the left from top to bottom. Best confidence is marked green, acceptable confidence is marked yellow.
 
 <img src="example_1_match.jpg" width="700" title="Matplot-grid with comparison results" />
 
+<hr>
 
 Example output log:
 
 <img src="example_2_log.jpg" width="700" title="Example output log" />
 
+<hr>
 
 ## Data sources and AI methods
 
