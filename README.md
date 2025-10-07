@@ -1,54 +1,101 @@
 <!-- This is based on the markdown template for the final project of the Building AI course, created by Reaktor Innovations and University of Helsinki -->
 
-# Ai-Jigsawpuzzle-Buddy
+# Ai Find My Photo
 ## Summary
 
-Ai-Jigsawpuzzle-Buddy will allow you to make a picture of your puzzle pieces along with the partly finished puzzle. Based on this picture it will generate an advice on placement of a next puzzle piece.
-
-( Final project for the Building AI course )
+You want to share some photos with a friend. However, over the years you have accumulated thousands of photos, how to find those that have your friend in it?
 
 ## Background
 
-You might get stuck while trying to complete a puzzle, none of the pieces seem to fit! You might ask a friend or a family member to help you. However, most people seem to really dislike your hobby. This is where Ai-Jigsawpuzzle-Buddy comes to the rescue!
+This is the final project for the Building AI course. It is a working demo. You should be able to make it run with minor effort. It is based on PyTorch, TensorFlow, DeepFace and others.
 
 ## How is it used?
 
-You make a picture of the puzzle pieces along with the partly finished puzzle. Ai-Jigsawpuzzle-Buddy will mark one of the unconnected pieces with a square en place a square where it might fit to a number of connected pieces.
+### Prepare the system
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Jigsaw_puzzle_solving_2.jpg/960px-Jigsaw_puzzle_solving_2.jpg" width="300">
+#### Install Python
 
-Pseudo code:
+Note that this instruction is based on a Microsoft Windows system
+
+Install Python (3.11 was used)
+* https://www.python.org/downloads/
+
+#### Install libraries
+
+PyTorch
+* https://pytorch.org/get-started/locally/
+* Note: if you have an NVIDIA graphics card, you can use the CUDA version to allow your GPU beiing for extra processing power
+* select the pip install command for your system
+
+OpenCV
+* https://opencv.org/
+
+DeepFace
+* https://github.com/serengil/deepface
+
+MatplotLib
+* https://matplotlib.org/
+
+pip commands
+
 ```
-def main():
-   puzzle = pictue
-   connected_piece=extractconnected(puzzle)
-   unconnected_pieces=extractunconnected(puzzle)
+pip install torch torchvision
+pip install opencv-python
+pip install deepface
+pip install matplotlib
+```
 
-   piece=None
-   location=None
-   for p in unconnected_pieces:
-      piece=p
-      location = try_fit(connected_piece, piece)
-      if location:
-         break
+Start the Python prompt with:
 
-   if location:
-      mark(picture, piece)
-      mark(picture, location)
+```
+python3
+```
 
-main()
+### Prepare the demo
+
+
+#### Load the code on python prompt 
+
+Note: modify 'dir_base' to match your folder.
+
+Note: this will initialize the libraries but will not start anyting otherwise.
+
+```
+dir_base = 'D:\\MachineLearningPyTorch'
+exec(open( dir_base+'/FindMyPhoto.py' ).read())
+```
+
+#### Download example files --> ./input/*.jpg
+
+Note: these are free-to-use photos of the Dutch royal family
+
+download_files(url_prefix, url_list, dir_input)
+
+#### Start the proces
+
+```
+recognize_faces_show()
 ```
 
 ## Data sources and AI methods
-* object detection and image segmentation techniques
-* 
+
+PyTorch, TensorFlow and DeepFace were used along with other mainstream libraries.
+
+The copyright of the used photos lies with the RVD. They may be downloaded free of charge for editorial use by news media, display in public spaces, private use, and educational purposes. 
+Source: https://www.koninklijkhuis.nl/foto-en-video/fotos-koninklijk-gezin
 
 ## Challenges
 
-## What next?
+It is quite easy to get a face recogniton program together based on pre-trained models and available libraries like DeepFace. Finding faces in images works quite well but very obvious faces might still be missed. There are different results in subsequential runs and sometimes the functions seem to return invalid face-areas.
+
+Nvidia CUDA allows you to use your Nvidia videocard for extra processing power (if you have one). I was not looking for realtime results but even with CUDS, the indexing of a large number of photoes takes conciderable time. 
+
+Comparing faces (verify) regularly misses the mark. However, there is still a lot that can be tried to improve matches, for example: normalize image size, use grayscale, change parameters, or try other models.
 
 ## Acknowledgments
-* wikimedia
-* similar: https://github.com/OmarMusayev/puzzlesolver
+* https://www.koninklijkhuis.nl/foto-en-video/fotos-koninklijk-gezin
+* https://buildingai.elementsofai.com/
+* many others
+* 
 
 
