@@ -30,11 +30,11 @@ PyTorch
 * If you have an NVIDIA graphics card, you can use the CUDA version to allow your GPU beiing for extra processing power
 * Select your configuration on the webpage and use the displayed pip install command
 
-OpenCV
-* https://opencv.org/
-
 DeepFace
 * https://github.com/serengil/deepface
+
+OpenCV
+* https://opencv.org/
 
 MatplotLib
 * https://matplotlib.org/
