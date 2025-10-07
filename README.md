@@ -58,9 +58,9 @@ python
 
 #### Load the code on the Python prompt 
 
-Copy/paste this to your Python command prompt (>>>) and press enter.
+Copy/paste this to your Python command prompt ( >>> ) and press enter.
 
-Note: modify 'dir_base' to match your folder. Use double backslashes (\\\\) on Windows.
+Note: modify 'dir_base' to match your folder. Use double backslashes ( \\\\ ) on Windows.
 
 Note: this will initialize the libraries, variables and functions, it will not start anything other than that.
 
@@ -71,7 +71,7 @@ exec(open( dir_base+'/FindMyPhoto.py' ).read())
 
 #### Download example files --> ./input/*.jpg
 
-Copy/paste this to your Python command prompt (>>>) and press enter.
+Copy/paste this to your Python command prompt ( >>> ) and press enter.
 
 Note: these are +-150 free-to-use photos of the Dutch royal family.
 
@@ -83,7 +83,7 @@ download_files(url_prefix, url_list, dir_input)
 
 #### Start the proces
 
-Copy/paste this to your Python command prompt (>>>) and press enter. Press CTRL+C to stop the proces.
+Copy/paste this to your Python command prompt ( >>> ) and press enter. Press CTRL+C to stop the proces.
 
 Note: if this is the first time you do this, then additional models will be downloaded automatically.
 
@@ -115,7 +115,7 @@ Example output log:
 
 For your own photo collection you need to point "dir_input" to your own location. This directory is then searched recursively for "jpg" images. You will also need "known faces" and assign an identity by placing these in a subfolder, for example "./input_knownpersons/klaas/klaas1.jpg". You can collect faces with below function.
 
-Copy/paste this to your Python command prompt (>>>) and press enter. Press CTRL+C to stop the proces.
+Copy/paste this to your Python command prompt ( >>> ) and press enter. Press CTRL+C to stop the proces.
 
 ```
 collect_person_faces()
