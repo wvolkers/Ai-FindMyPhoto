@@ -130,7 +130,7 @@ def show_subplots(topplot,subplotsarray):
     for r in range(rows):
         cols=int(np.maximum(cols,len(subplotsarray[r])))
     rows=int(np.maximum(rows,2))
-    
+
     top_plot_rows = 5
     fig = plt.figure(figsize=(cols, rows + top_plot_rows))
     gs = gridspec.GridSpec(rows + top_plot_rows, cols, figure=fig)
@@ -544,12 +544,12 @@ def download_files(url_prefix, url_list, dir_output):
 def recognize_faces_show(singlefile=None):
 
     close_all_windows()
-    
+
     #all known persons
     known_faces=read_known_faces(dir_known_persons)
 
     plt.ion() #interactive mode to allow updating the plot while running
-    
+
     plot_personsrow=[{'topleft':True}]
     for person in known_faces:
         for j,image in enumerate(known_faces[person]):
@@ -599,9 +599,9 @@ def recognize_faces_show(singlefile=None):
                 #all known images of a person
                 for j,faceknown in enumerate(known_faces[person]):
                     plt.pause(0.1) #allow for some plot interaction
-                    
+
                     #compare
-                    verifyresult = DeepFace.verify(faceknown['img'], face['img_final'], enforce_detection=False)                    
+                    verifyresult = DeepFace.verify(faceknown['img'], face['img_final'], enforce_detection=False)
                     log('verify',person, j,'confidence',verifyresult['confidence']
                         ,'distance',verifyresult['distance'], 'threshold',verifyresult['threshold'])
 
@@ -654,7 +654,7 @@ def recognize_faces_show(singlefile=None):
 
             #Show the result
             close_all_windows()
-            
+
             image=cv2.imdecode(np.fromfile(file, np.uint8), cv2.IMREAD_UNCHANGED)
             mark_image_faces(image,faces)
 
