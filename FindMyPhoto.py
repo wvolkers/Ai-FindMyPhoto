@@ -1,15 +1,15 @@
 
-#root dir of python script
-#dir_base = 'D:\\PATH' 
+
+#dir_base = 'C:\\Users\\wilbert\\Documents\\Wilbert_git\\Ai-FindMyPhoto'
 
 '''
 
 #### 1. (re)load the code on python prompt
 ####
-#### Note: modify 'dir_base' and run these lines your python prompt ">>>"
+#### Note: modify 'dir_base' and run these lines your python prompt
 
-dir_base = 'D:\\MachineLearningPyTorch'
-exec(open( dir_base+'/FindMyPhoto.py' ).read())
+dir_base = 'C:\\Users\\wilbert\\Documents\\Wilbert_git\\Ai-FindMyPhoto'
+exec(open( dir_base + '/FindMyPhoto.py' ).read())
 
 #### 2. download example files --> ./input/*.jpg
 ####
