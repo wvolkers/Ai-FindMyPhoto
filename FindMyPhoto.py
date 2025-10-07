@@ -40,10 +40,8 @@ import datetime
 import shutil
 import requests
 from io import StringIO
-
 import matplotlib.pyplot as plt
 import numpy as np
-
 import cv2
 import torch
 from deepface import DeepFace
@@ -76,6 +74,26 @@ recognize_minimum_confidence=55
 torch.set_grad_enabled(False)
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 log('available device:',torch.device('cuda' if torch.cuda.is_available() else 'cpu'))
+
+
+def normalize_name(name):
+    return name.replace('\\','-') \
+        .replace('/','-') \
+        .replace(':','-') \
+        .replace('-','-') \
+        .replace('_','-') \
+        .replace('--','-')
+
+
+def normalize_filename(dir_input,file):
+    file=Path( file )
+    #file dir
+    n_file_dir='/'+normalize_name(str(file.parent)+'-')
+    #root input dir
+    n_input_dir='/'+normalize_name(dir_input+'-')
+    #remove root input dir
+    n_file_dir=n_file_dir.replace(n_input_dir,'').replace('/','')
+    return normalize_name(n_file_dir+file.stem)
 
 
 def resize_with_aspect_ratio(image, width=None, height=None, inter=cv2.INTER_AREA):
@@ -129,6 +147,61 @@ def show_subplots(subplotsarray):
     plt.get_current_fig_manager().resize(cols*150,rows*150)
     plt.show(block=False)
     plt.pause(0.001) #allow to window to update
+
+
+def mark_image(image,label,face,color):
+    font_scale=1.7
+    font = cv2.FONT_HERSHEY_PLAIN
+    thick=1
+
+    #detected_face = image[int(y):int(y+h), int(x):int(x+w)]
+    x,y,w,h=face['x'],face['y'],face['w'],face['h']
+    radius=(w+h)//40
+    if debug>=1:
+        log(label,'(',x,',',y,') ',w,'x',h)
+
+    cv2.rectangle(image, (x, y), (x+w, y+h), color=color, thickness=thick)
+
+    if 'mouth_left' in face and 'mouth_right' in face :
+        pt1=(round(face['mouth_left'][0]), round(face['mouth_left'][1]))
+        pt2=(round(face['mouth_right'][0]),round(face['mouth_right'][1]))
+        cv2.line(image, pt1, pt2, color=color, thickness=thick)
+
+    if 'nose' in face:
+        pt3=(round(face['nose'][0]),round(face['nose'][1]))
+        cv2.circle(image, pt3, radius, color=color, thickness=thick)
+
+    if 'left_eye' in face:
+        pt4=(round(face['left_eye'][0]),round(face['left_eye'][1]))
+        cv2.circle(image, pt4, radius, color=color, thickness=thick)
+
+    if 'right_eye' in face:
+        pt5=(round(face['right_eye'][0]),round(face['right_eye'][1]))
+        cv2.circle(image, pt5, radius, color=color, thickness=thick)
+
+    (txtw, txth) = cv2.getTextSize(label, font, fontScale=font_scale, thickness=thick)[0]
+    cv2.rectangle(image, (x, y), (x + txtw + 2, y - txth - 2), color, cv2.FILLED)
+    cv2.putText(image, label, (x, y), font, fontScale=font_scale, color=(0, 0, 0), thickness=thick)
+
+
+def show_faces_marked(image,faces):
+    # Mark the detected faces and show the image
+    for i,face in enumerate(faces['facesarray']):
+        if 'confidence' in face and face['confidence']>recognize_minimum_confidence:
+            mark_image(image,'face' + str(i) + ' ' + str(round(face['confidence'])) + '%',face,(0, 255, 0))
+        else:
+            mark_image(image,'face' + str(i),face,(0, 255, 255))
+
+    if faces['w']>faces['h']:
+        resized = resize_with_aspect_ratio(image, width=1440)
+    else:
+        resized = resize_with_aspect_ratio(image, height=1080)
+    cv2.imshow('Face Detection', resized)
+    cv2.waitKey(1) # allow window to update
+
+def close_all_windows():
+    cv2.destroyAllWindows()
+    plt.close('all')
 
 
 #face is padded, to be used as reference
@@ -216,81 +289,6 @@ def deep_faces(file):
     padded_faces_dict['facesarray'] = facesarray
 
     return padded_faces_dict
-
-
-def normalize_name(name):
-    return name.replace('\\','-') \
-        .replace('/','-') \
-        .replace(':','-') \
-        .replace('-','-') \
-        .replace('_','-') \
-        .replace('--','-')
-
-
-def normalize_filename(dir_input,file):
-    file=Path( file )
-    #file dir
-    n_file_dir='/'+normalize_name(str(file.parent)+'-')
-    #root input dir
-    n_input_dir='/'+normalize_name(dir_input+'-')
-    #remove root input dir
-    n_file_dir=n_file_dir.replace(n_input_dir,'').replace('/','')
-    return normalize_name(n_file_dir+file.stem)
-
-
-def mark_image(image,label,face,color):
-    font_scale=1.7
-    font = cv2.FONT_HERSHEY_PLAIN
-    thick=1
-
-    #detected_face = image[int(y):int(y+h), int(x):int(x+w)]
-    x,y,w,h=face['x'],face['y'],face['w'],face['h']
-    radius=(w+h)//40
-    if debug>=1:
-        log(label,'(',x,',',y,') ',w,'x',h)
-
-    cv2.rectangle(image, (x, y), (x+w, y+h), color=color, thickness=thick)
-
-    if 'mouth_left' in face and 'mouth_right' in face :
-        pt1=(round(face['mouth_left'][0]), round(face['mouth_left'][1]))
-        pt2=(round(face['mouth_right'][0]),round(face['mouth_right'][1]))
-        cv2.line(image, pt1, pt2, color=color, thickness=thick)
-
-    if 'nose' in face:
-        pt3=(round(face['nose'][0]),round(face['nose'][1]))
-        cv2.circle(image, pt3, radius, color=color, thickness=thick)
-
-    if 'left_eye' in face:
-        pt4=(round(face['left_eye'][0]),round(face['left_eye'][1]))
-        cv2.circle(image, pt4, radius, color=color, thickness=thick)
-
-    if 'right_eye' in face:
-        pt5=(round(face['right_eye'][0]),round(face['right_eye'][1]))
-        cv2.circle(image, pt5, radius, color=color, thickness=thick)
-
-    (txtw, txth) = cv2.getTextSize(label, font, fontScale=font_scale, thickness=thick)[0]
-    cv2.rectangle(image, (x, y), (x + txtw + 2, y - txth - 2), color, cv2.FILLED)
-    cv2.putText(image, label, (x, y), font, fontScale=font_scale, color=(0, 0, 0), thickness=thick)
-
-
-def show_faces_marked(image,faces):
-    # Mark the detected faces and show the image
-    for i,face in enumerate(faces['facesarray']):
-        if 'confidence' in face and face['confidence']>recognize_minimum_confidence:
-            mark_image(image,'face' + str(i) + ' ' + str(round(face['confidence'])) + '%',face,(0, 255, 0))
-        else:
-            mark_image(image,'face' + str(i),face,(0, 255, 255))
-
-    if faces['w']>faces['h']:
-        resized = resize_with_aspect_ratio(image, width=1440)
-    else:
-        resized = resize_with_aspect_ratio(image, height=1080)
-    cv2.imshow('Face Detection', resized)
-    cv2.waitKey(1) # allow window to update
-
-def close_all_windows():
-    cv2.destroyAllWindows()
-    plt.close('all')
 
 
 def read_known_faces(dir_known_persons):
