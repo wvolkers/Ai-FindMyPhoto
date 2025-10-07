@@ -10,7 +10,7 @@ This is the final project for the freely available "Building AI" course (https:/
 
 ## Background
 
-This is a working demo. You should be able to make it run with minor effort. It is based on PyTorch, DeepFace and other freely available libraries.
+<b>This is a working demo.</b> You should be able to make it run with minor effort. It is based on PyTorch, DeepFace and other freely available libraries. It uses a number of example photo's that are downloaded while preparing the demo. A number of ""known" faces are included in this project.
 
 ## How is it used?
 
@@ -83,7 +83,7 @@ download_files(url_prefix, url_list, dir_input)
 
 #### Start the proces
 
-Copy/paste this to your Python command prompt (>>>) and press enter.
+Copy/paste this to your Python command prompt (>>>) and press enter. Press CTRL+C to stop the proces.
 
 Note: if this is the first time you do this, then additional models will be downloaded automatically.
 
@@ -110,6 +110,16 @@ Example output log:
 <img src="example_2_log.jpg" width="700" title="Example output log" />
 
 <hr>
+
+#### Your own photo collection
+
+For your own photo collection you need to point "dir_input" to your own location. This directory is then searched recursively for "jpg" images. You will also need "known faces" and assign an identity by placing these in a subfolder, for example "./input_knownpersons/klaas/klaas1.jpg". You can collect faces with below function.
+
+Copy/paste this to your Python command prompt (>>>) and press enter. Press CTRL+C to stop the proces.
+
+```
+collect_person_faces()
+```
 
 ## Data sources and AI methods
 
