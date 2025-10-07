@@ -111,9 +111,9 @@ Source: https://www.koninklijkhuis.nl/foto-en-video/fotos-koninklijk-gezin
 
 ## Challenges
 
-It is quite easy to get a face recogniton program together based on pre-trained models and available libraries like DeepFace. Finding faces in images works quite well but very obvious faces might still be missed. There are different results in subsequential runs and sometimes the functions seem to return invalid face-areas.
+It is quite easy to get a face recogniton program together based on pre-trained models, libraries like DeepFace and available examples. Finding faces in images works quite well but very obvious faces might still be missed. There are different results in subsequential runs and sometimes the functions seem to return invalid face-areas.
 
-Nvidia CUDA allows you to use your Nvidia videocard for extra processing power (if you have one). I was not looking for realtime results but even with CUDS, the indexing of a large number of photoes takes conciderable time. 
+Nvidia CUDA allows you to use your Nvidia videocard for extra processing power (if you have one). I was not looking for realtime results but even with CUDS, the indexing of a large number of photos takes conciderable time. 
 
 Comparing faces (verify) regularly misses the mark. However, there is still a lot that can be tried to improve matches, for example: normalize image size, use grayscale, change parameters, or try other models.
 
