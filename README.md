@@ -103,11 +103,7 @@ Resulting image displayed with OpenCV. Recognized faces are marked green along w
 
 <hr>
 
-Matplot-grid with comparison results. "Known" faces are displayed in the top-row from left-to-right. Faces that are found in the photo are displayed from top-to-bottom. Best confidence is marked green, acceptable confidence is marked yellow. Detection of "face features" like eyes and nose are used by DeepFace to align the face (rotate) for better matching results. This is best visible for "face0" (Alexander) in below picture.
-
-<img src="example_1_match.jpg" width="700" title="Matplot-grid with comparison results" />
-
-<hr>
+Matplot-grid with comparison results. "Known" faces are displayed in the top-row from left-to-right. Faces that are found in the photo are displayed from top-to-bottom. Best confidence is marked green, acceptable confidence is marked yellow. Detection of "face features" like eyes and nose are used by DeepFace to align the face (rotate) for better matching results.
 
 <img src="example_3.jpg" width="700" title="Matplot-grid with comparison results" />
 
