@@ -58,7 +58,7 @@ python
 
 #### Load the code on the Python prompt 
 
-Copy/paste this to your Python command prompt (>>>) and press enter:
+Copy/paste this to your Python command prompt (>>>) and press enter.
 
 Note: modify 'dir_base' to match your folder.
 
@@ -71,7 +71,7 @@ exec(open( dir_base+'/FindMyPhoto.py' ).read())
 
 #### Download example files --> ./input/*.jpg
 
-Copy/paste this to your Python command prompt (>>>) and press enter:
+Copy/paste this to your Python command prompt (>>>) and press enter.
 
 Note: these are +-150 free-to-use photos of the Dutch royal family.
 
@@ -83,17 +83,19 @@ download_files(url_prefix, url_list, dir_input)
 
 #### Start the proces
 
+Copy/paste this to your Python command prompt (>>>) and press enter.
+
 Note: if this is the first time you do this, then additional models will be downloaded automatically.
 
 ```
 recognize_faces_show()
 ```
 
-OpenCV marked image:
+Marked image displayed with OpenCV, recognized faces are marked green along with the % confidence.
 
 <img src="example_1_image.jpg" width="700" title="OpenCV marked image" />
 
-Matplot-grid with comparison results:
+Matplot-grid with comparison results. "Known" faces are displayed in the top-row from left to right, found faces are displayed on the left from top to bottom. Acceptable confidence is markt yellow, the best is marked green:
 
 <img src="example_1_match.jpg" width="700" title="Matplot-grid with comparison results" />
 
