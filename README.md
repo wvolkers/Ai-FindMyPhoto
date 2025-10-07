@@ -10,7 +10,7 @@ This is the final project for the freely available "Building AI" course (https:/
 
 ## Background
 
-<b>This is a working demo.</b> You should be able to make it run with minor effort. It is based on PyTorch, DeepFace and other freely available libraries. It uses a number of example photo's that are downloaded while preparing the demo. A number of "known faces" are included in this project.
+<b>This is a working demo.</b> You should be able to make it run with minor effort. It is based on PyTorch, DeepFace and other freely available libraries. It uses a number of example photo's that are downloaded while preparing the demo. A number of "known persons" that fit these example photos are included in this project.
 
 ## How is it used?
 
@@ -99,7 +99,7 @@ Resulting image displayed with OpenCV. Recognized faces are marked green along w
 
 <hr>
 
-Matplot-grid with comparison results. "Known" faces are displayed in the top-row from left to right, faces that are found in the photo are displayed on the left from top to bottom. Best confidence is marked green, acceptable confidence is marked yellow.
+Matplot-grid with comparison results. "Known" faces are displayed in the top-row from left-to-right. Faces that are found in the photo are displayed from top-to-bottom. Best confidence is marked green, acceptable confidence is marked yellow. Detection of "face features" like eyes and nose are used by DeepFace to align the face (rotate) for better matching results. This is best visible for "face0" in below picture.
 
 <img src="example_1_match.jpg" width="700" title="Matplot-grid with comparison results" />
 
