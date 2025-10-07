@@ -56,6 +56,10 @@ python
 
 ### Prepare the demo
 
+#### Get the sourcecode
+
+Use "git clone" or download and extract the project files including the subfolders.
+
 #### Load the code on the Python prompt 
 
 Copy/paste this to your Python command prompt ( >>> ) and press enter.
