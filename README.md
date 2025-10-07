@@ -10,7 +10,7 @@ This is the final project for the freely available "Building AI" course (https:/
 
 ## Background
 
-This is a working demo. You should be able to make it run with minor effort. It is based on PyTorch, TensorFlow, DeepFace and other freely available libraries.
+This is a working demo. You should be able to make it run with minor effort. It is based on PyTorch, DeepFace and other freely available libraries.
 
 ## How is it used?
 
