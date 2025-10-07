@@ -58,7 +58,7 @@ python
 
 #### Get the sourcecode
 
-Use "git clone" or download and extract the project files including the subfolders.
+Use "git clone" or download and extract the project files and folders to a location of your choosing.
 
 #### Load the code on the Python prompt 
 
@@ -66,7 +66,7 @@ Copy/paste this to your Python command prompt ( >>> ) and press enter.
 
 Note: modify 'dir_base' to match your folder. Use double backslashes ( \\\\ ) or forward slashes ( / ) on Windows.
 
-Note: this will initialize the libraries, variables and functions, it will not start anything other than that.
+Note: this will initialize the libraries, variables and functions, it will not start the demo.
 
 ```
 dir_base = 'C:\\Users\\wilbert\\Documents\\Wilbert_git\\Ai-FindMyPhoto'
