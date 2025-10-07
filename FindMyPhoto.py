@@ -21,7 +21,7 @@ download_files(url_prefix, url_list, dir_input)
 ####
 #### Let it find some faces you can use as 'known faces', stop it by pressing CTRL+C
 #### Identify and move some of the faces --> ./input_knownpersons/<person>/*.jpg
-#### 
+####
 #### Note: you don't need to do this as there are some included in the project
 
 collect_person_faces()
@@ -120,7 +120,7 @@ def show_subplots(subplotsarray):
                     if subplotsarray[r][c]['emphasize']>=1:
                         axs[r,c].axis('on')
                         axs[r,c].get_xaxis().set_visible(False)
-                        axs[r,c].get_yaxis().set_visible(False)                        
+                        axs[r,c].get_yaxis().set_visible(False)
                         if subplotsarray[r][c]['emphasize']>=2:
                             axs[r,c].set_facecolor('lightgreen')
                         else:
@@ -280,7 +280,7 @@ def show_faces_marked(image,faces):
             mark_image(image,'face' + str(i) + ' ' + str(round(face['confidence'])) + '%',face,(0, 255, 0))
         else:
             mark_image(image,'face' + str(i),face,(0, 255, 255))
-        
+
     if faces['w']>faces['h']:
         resized = resize_with_aspect_ratio(image, width=1440)
     else:
@@ -358,9 +358,9 @@ def collect_person_faces():
 # Free-to-use example files
 
 '''
-The copyright of these photos lies with the RVD. They may be downloaded 
-free of charge for editorial use by news media, display in public spaces, 
-private use, and educational purposes. 
+The copyright of these photos lies with the RVD. They may be downloaded
+free of charge for editorial use by news media, display in public spaces,
+private use, and educational purposes.
 Source: https://www.koninklijkhuis.nl/foto-en-video/fotos-koninklijk-gezin
 '''
 
@@ -537,9 +537,9 @@ def download_files(url_prefix, url_list, dir_output):
         url=url.rstrip()
         i+=1
         if url!='':
-            print(i,'/',n,url.split('/')[-1])            
+            print(i,'/',n,url.split('/')[-1])
             download_file(url_prefix + url, dir_output)
-    
+
 
 
 
@@ -547,7 +547,7 @@ def download_files(url_prefix, url_list, dir_output):
 #
 # compare faces in a number of photos against a collection of known faces
 
-def recognize_faces_show():    
+def recognize_faces_show():
 
     #all known persons
     known_faces=read_known_faces(dir_known_persons)
@@ -574,7 +574,7 @@ def recognize_faces_show():
     #compare
     mostfacesfile=None
     mostfaces=-1
-    
+
     #all photos
     for k, file in enumerate(nimages):
         log('recognize',k,'/',n,file)
@@ -585,7 +585,7 @@ def recognize_faces_show():
 
         #all faces in the photo
         result_total={}
-        plot=[plot_personsrow]       
+        plot=[plot_personsrow]
         for i,face in enumerate(faces['facesarray']):
 
             plot_row=[{'title':'face'+str(i), 'img':face['img_final']}]
@@ -618,7 +618,7 @@ def recognize_faces_show():
                             'facescore' : face['score'],
                             'verifyresult' : verifyresult
                             }
-                            
+
                     label1='distance '+str(round(verifyresult['distance']*100))
                     label2='maxdist '+str(round(verifyresult['threshold']*100))
                     label3='match '+str(round(verifyresult['confidence']))+'%'
@@ -651,7 +651,7 @@ def recognize_faces_show():
 
             #Show the result
             close_all_windows()
-            
+
             #show comparison result
             show_subplots(plot)
 
