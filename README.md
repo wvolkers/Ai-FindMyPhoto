@@ -27,7 +27,7 @@ Install Python (3.13 was used)
 
 PyTorch
 * https://pytorch.org/get-started/locally/
-* If you have an NVIDIA graphics card, you can use the CUDA version to allow your GPU beiing for extra processing power
+* If you have an NVIDIA graphics card, you can use the CUDA version to allow your GPU being for extra processing power
 * Select your configuration on the webpage and use the displayed pip install command
 
 DeepFace
@@ -85,9 +85,9 @@ Note: the mentioned variables have been set in the previous step.
 download_files(url_prefix, url_list, dir_input)
 ```
 
-#### Start the proces
+#### Start the process
 
-Copy/paste this to your Python command prompt ( >>> ) and press enter. Press CTRL+C to stop the proces.
+Copy/paste this to your Python command prompt ( >>> ) and press enter. Press CTRL+C to stop the process.
 
 Note: if this is the first time you do this, then additional models will be downloaded automatically.
 
@@ -134,9 +134,9 @@ Source: https://www.koninklijkhuis.nl/foto-en-video/fotos-koninklijk-gezin
 
 ## Challenges
 
-It is quite easy to get a face recogniton program together based on pre-trained models, libraries like DeepFace and available examples. Finding faces in images works quite well but very obvious faces might still be missed. There are different results in subsequential runs and sometimes the functions seem to return invalid face-areas.
+It is quite easy to get a face recognition program together based on pre-trained models, libraries like DeepFace and available examples. Finding faces in images works quite well but very obvious faces might still be missed. There are different results in subsequential runs and sometimes the functions seem to return invalid face-areas.
 
-Nvidia CUDA allows you to use your Nvidia videocard for extra processing power (if you have one). I was not looking for realtime results but even with CUDS, the indexing of a large number of photos takes conciderable time. 
+Nvidia CUDA allows you to use your Nvidia videocard for extra processing power (if you have one). I was not looking for realtime results but even with CUDS, the indexing of a large number of photos takes considerable time. 
 
 Comparing faces (verify) regularly misses the mark. However, there is still a lot that can be tried to improve matches, for example: normalize image size, use grayscale, change parameters, or try other models.
 
