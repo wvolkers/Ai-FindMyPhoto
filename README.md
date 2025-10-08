@@ -9,10 +9,8 @@ You want to share some photos with a friend. However, over the years you have ac
 This is the final project for the freely available "Building AI" course (https://buildingai.elementsofai.com/).
 
 ## Background
-
-<b>This is a working demo.</b> You should be able to make it run with minor effort. It is based on PyTorch, DeepFace and other freely available libraries. It uses a number of example photo's that are downloaded while preparing the demo. A number of "known persons" that fit these example photos are included in this project.
-
 <img align="right" src="example_1_image.jpg" width="300" title="OpenCV marked image" />
+<b>This is a working demo.</b> You should be able to make it run with minor effort. It is based on PyTorch, DeepFace and other freely available libraries. It uses a number of example photo's that are downloaded while preparing the demo. A number of "known persons" that fit these example photos are included in this project.
 
 ## How is it used?
 
