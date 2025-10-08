@@ -4,7 +4,7 @@
 
 ## Summary
 
-You want to share some photos with a friend. However, over the years you have accumulated thousands of photos, how to find those that have your friend in it?
+You want to share some photos with a friend. However, over the years you have accumulated thousands of photos, how do you find those that have your friend in them?
 
 This is the final project for the freely available "Building AI" course (https://buildingai.elementsofai.com/).
 
