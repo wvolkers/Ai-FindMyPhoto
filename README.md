@@ -6,7 +6,7 @@
 
 You want to share some photos with a friend. However, over the years you have accumulated thousands of photos, how do you find those that have your friend in them?
 
-This is the final project for the freely available "Building AI" course (https://buildingai.elementsofai.com/).
+This is the final project for the freely available "Building AI" course ( https://buildingai.elementsofai.com/ )
 
 ## Background
 <img align="right" src="example_1_image.jpg" width="300" title="OpenCV marked image" />
