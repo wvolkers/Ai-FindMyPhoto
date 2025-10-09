@@ -64,7 +64,7 @@ Use "git clone" or download and extract the project files and folders to a locat
 
 #### Load the code on the Python prompt 
 
-Thisfunction will initialize the libraries, variables and functions, it will not start the demo.
+This function will initialize the libraries, variables and functions, it will not start the demo.
 
 Copy/paste this to your Python command prompt ( >>> ) and press enter.
 
@@ -93,7 +93,7 @@ download_files(url_prefix, url_list, dir_input)
 
 Copy/paste this to your Python command prompt ( >>> ) and press enter. Press CTRL+C to stop the process.
 
-Note: if this is the first time you do this, then additional models will be downloaded automatically.
+Note: if this is the first time you do this, then additional models and training data will be downloaded automatically.
 
 ```
 recognize_faces_show()
