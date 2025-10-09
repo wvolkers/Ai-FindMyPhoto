@@ -12,7 +12,7 @@ This is the final project for the freely available "Building AI" course ( https:
 
 ## Background
 <img align="right" src="example_1_image.jpg" width="300" title="OpenCV marked image" />
-<b>This is a working demo.</b> You should be able to make it run with minor effort. It is based on PyTorch, DeepFace and other freely available libraries. It uses a number of example photo's that are downloaded while preparing the demo. The copyright of these photos lie with the RVD, they may be used for educational use. Three "known persons" that fit these photos are included in the project folders.
+<b>This is a working demo.</b> You should be able to make it run with minor effort. It is based on PyTorch, DeepFace and other freely available libraries. It uses a number of example photo's that are downloaded while preparing the demo. Three "known persons" that fit these photos are included in the project folders.
 
 ## How is it used?
 
