@@ -77,11 +77,9 @@ exec(open( dir_base+'/FindMyPhoto.py' ).read())
 
 #### Download example files --> ./input/*.jpg
 
-This function will download a number of example photos that will act as your photo library.
+This function will download a number of example photos that will act as your photo library. It will contain about 150 photos of the Dutch Royal family.
 
 Copy/paste this to your Python command prompt ( >>> ) and press enter.
-
-Note: these are +-150 free-to-use photos of the Dutch royal family.
 
 Note: the mentioned variables have been set in the previous step.
 
