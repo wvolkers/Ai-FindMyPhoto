@@ -6,7 +6,7 @@
 
 You want to share some photos with a friend. However, over the years you have accumulated thousands of photos, how do you find those that have your friend in them?
 
-This single-file Python program searches recursively through all images in a specified library folder to locate photo's that cointain specified 'known faces'. These 'known faces' are passport-like images and are located in a folder, each person has its own folder that can contain multiple imagages. The library photo's are located by finding faces in the photo (using DeepFace) and comaring the found faces with the 'known faces'.
+This single-file Python program searches recursively through all images in a specified library-folder to locate photo's that cointain specified 'known faces'. These 'known faces' are passport-like images that are located in a folder, each person has its own folder that can contain multiple images. The library photo's are located by finding faces in these photo's and comparing the found faces with the 'known faces'.
 
 This is the final project for the freely available "Building AI" course ( https://buildingai.elementsofai.com/ )
 
