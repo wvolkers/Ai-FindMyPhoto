@@ -147,6 +147,7 @@ Comparing faces (verify) regularly misses the mark. However, there is still a lo
 * https://buildingai.elementsofai.com/
 * https://www.codegenes.net/blog/face-detection-pytorch/
 * https://pypi.org/project/deepface/
+* https://synaxion.com
 * many others
 
 
