@@ -6,6 +6,8 @@
 
 You want to share some photos with a friend. However, over the years you have accumulated thousands of photos, how do you find those that have your friend in them?
 
+This single-file Python program searches recursively through all images in a specified library folder to locate photo's that cointain specified 'known faces'. These 'known faces' are passport-like images and are located in a folder, each person has its own folder that can contain multiple imagages. The library photo's are located by finding faces in the photo (using DeepFace) and comaring the found faces with the 'known faces'.
+
 This is the final project for the freely available "Building AI" course ( https://buildingai.elementsofai.com/ )
 
 ## Background
@@ -62,11 +64,11 @@ Use "git clone" or download and extract the project files and folders to a locat
 
 #### Load the code on the Python prompt 
 
+Thisfunction will initialize the libraries, variables and functions, it will not start the demo.
+
 Copy/paste this to your Python command prompt ( >>> ) and press enter.
 
 Note: modify 'dir_base' to match your folder. Use double backslashes ( \\\\ ) or forward slashes ( / ) on Windows.
-
-Note: this will initialize the libraries, variables and functions, it will not start the demo.
 
 ```
 dir_base = 'C:\\Users\\wilbert\\Documents\\Wilbert_git\\Ai-FindMyPhoto'
@@ -74,6 +76,8 @@ exec(open( dir_base+'/FindMyPhoto.py' ).read())
 ```
 
 #### Download example files --> ./input/*.jpg
+
+This function will download a number of example photos that will act as your photo library.
 
 Copy/paste this to your Python command prompt ( >>> ) and press enter.
 
@@ -97,7 +101,7 @@ recognize_faces_show()
 
 <hr>
 
-Resulting image displayed with OpenCV. Recognized faces are marked green along with the % confidence. "Unknown" faces are marked yellow.
+Resulting image displayed with Matplot. Recognized faces are marked green along with the % confidence. "Unknown" faces are marked yellow.
 
 <img src="example_1_image.jpg" width="700" title="OpenCV marked image" />
 
