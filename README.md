@@ -29,7 +29,7 @@ Install Python (3.13 was used)
 
 PyTorch
 * https://pytorch.org/get-started/locally/
-* If you have an NVIDIA graphics card, you can use the CUDA version to allow your GPU being for extra processing power
+* If you have an NVIDIA graphics card, you can use the CUDA version to allow your GPU being used for extra processing power
 * Select your configuration on the webpage and use the displayed pip install command
 
 DeepFace
