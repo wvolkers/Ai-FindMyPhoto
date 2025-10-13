@@ -4,13 +4,15 @@
 
 ## Summary
 
-You want to share some photos with a friend. However, over the years you have accumulated thousands of photos, how to find those that have your friend in it?
+You want to share some photos with a friend. However, over the years you have accumulated thousands of photos, how do you find those that have your friend in them?
 
-This is the final project for the freely available "Building AI" course (https://buildingai.elementsofai.com/).
+This single-file Python program searches recursively through all images in a specified library-folder to locate photo's that cointain specified 'known faces'. These 'known faces' are passport-like images that are located in a folder, each person has its own folder that can contain multiple images. The library photo's are located by finding faces in these photo's and comparing the found faces with the 'known faces'.
+
+This is the final project for the freely available "Building AI" course ( https://buildingai.elementsofai.com/ )
 
 ## Background
-
-<b>This is a working demo.</b> You should be able to make it run with minor effort. It is based on PyTorch, DeepFace and other freely available libraries. It uses a number of example photo's that are downloaded while preparing the demo. A number of "known persons" that fit these example photos are included in this project.
+<img align="right" src="example_1_image.jpg" width="300" title="OpenCV marked image" />
+<b>This is a working demo.</b> You should be able to make it run with minor effort. It is based on PyTorch, DeepFace and other freely available libraries. It uses a number of example photo's that are downloaded while preparing the demo. Three "known persons" that fit these photos are included in the project folders.
 
 ## How is it used?
 
@@ -27,7 +29,7 @@ Install Python (3.13 was used)
 
 PyTorch
 * https://pytorch.org/get-started/locally/
-* If you have an NVIDIA graphics card, you can use the CUDA version to allow your GPU beiing for extra processing power
+* If you have an NVIDIA graphics card, you can use the CUDA version to allow your GPU being used for extra processing power
 * Select your configuration on the webpage and use the displayed pip install command
 
 DeepFace
@@ -62,12 +64,17 @@ Use "git clone" or download and extract the project files and folders to a locat
 
 #### Load the code on the Python prompt 
 
+This function will initialize the libraries, variables and functions, it will not start the demo.
+
 Copy/paste this to your Python command prompt ( >>> ) and press enter.
 
 <b>Note:</b> modify 'dir_base' to match your folder. Use double backslashes ( \\\\ ) or forward slashes ( / ) on Windows.
 
+<<<<<<< HEAD
 <b>Note:</b> this will initialize the libraries, variables and functions, it will not start the demo.
 
+=======
+>>>>>>> 713f6f98567fd2e41fd48baf7366241a22122ac0
 ```
 dir_base = 'C:\\Users\\wilbert\\Documents\\Wilbert_git\\Ai-FindMyPhoto'
 exec(open( dir_base+'/FindMyPhoto.py' ).read())
@@ -75,9 +82,13 @@ exec(open( dir_base+'/FindMyPhoto.py' ).read())
 
 #### Download example files --> ./input/*.jpg
 
-Copy/paste this to your Python command prompt ( >>> ) and press enter.
+This function will download a number of example photos that will act as your photo library. It will contain about 150 photos of the Dutch Royal family.
 
+<<<<<<< HEAD
 <b>Note:</b> these are +-150 free-to-use photos of the Dutch royal family.
+=======
+Copy/paste this to your Python command prompt ( >>> ) and press enter.
+>>>>>>> 713f6f98567fd2e41fd48baf7366241a22122ac0
 
 <b>Note:</b> the mentioned variables have been set in the previous step.
 
@@ -85,11 +96,15 @@ Copy/paste this to your Python command prompt ( >>> ) and press enter.
 download_files(url_prefix, url_list, dir_input)
 ```
 
-#### Start the proces
+#### Start the process
 
-Copy/paste this to your Python command prompt ( >>> ) and press enter. Press CTRL+C to stop the proces.
+Copy/paste this to your Python command prompt ( >>> ) and press enter. Press CTRL+C to stop the process.
 
+<<<<<<< HEAD
 <b>Note:</b> if this is the first time you do this, then additional models will be downloaded automatically.
+=======
+Note: if this is the first time you do this, then additional models and training data will be downloaded automatically.
+>>>>>>> 713f6f98567fd2e41fd48baf7366241a22122ac0
 
 ```
 recognize_faces_show()
@@ -97,17 +112,13 @@ recognize_faces_show()
 
 <hr>
 
-Resulting image displayed with OpenCV. Recognized faces are marked green along with the % confidence. "Unknown" faces are marked yellow.
+Resulting image displayed with Matplot. Recognized faces are marked green along with the % confidence. "Unknown" faces are marked yellow.
 
 <img src="example_1_image.jpg" width="700" title="OpenCV marked image" />
 
 <hr>
 
-Matplot-grid with comparison results. "Known" faces are displayed in the top-row from left-to-right. Faces that are found in the photo are displayed from top-to-bottom. Best confidence is marked green, acceptable confidence is marked yellow. Detection of "face features" like eyes and nose are used by DeepFace to align the face (rotate) for better matching results. This is best visible for "face0" (Alexander) in below picture.
-
-<img src="example_1_match.jpg" width="700" title="Matplot-grid with comparison results" />
-
-<hr>
+Matplot-grid with comparison results. "Known" faces are displayed in the top-row from left-to-right. Faces that are found in the photo are displayed from top-to-bottom. Best confidence is marked green, acceptable confidence is marked yellow. Detection of "face features" like eyes and nose are used by DeepFace to align the face (rotate) for better matching results.
 
 <img src="example_3.jpg" width="700" title="Matplot-grid with comparison results" />
 
@@ -138,9 +149,9 @@ Source: https://www.koninklijkhuis.nl/foto-en-video/fotos-koninklijk-gezin
 
 ## Challenges
 
-It is quite easy to get a face recogniton program together based on pre-trained models, libraries like DeepFace and available examples. Finding faces in images works quite well but very obvious faces might still be missed. There are different results in subsequential runs and sometimes the functions seem to return invalid face-areas.
+It is quite easy to get a face recognition program together based on pre-trained models, libraries like DeepFace and available examples. Finding faces in images works quite well but very obvious faces might still be missed. There are different results in subsequential runs and sometimes the functions seem to return invalid face-areas.
 
-Nvidia CUDA allows you to use your Nvidia videocard for extra processing power (if you have one). I was not looking for realtime results but even with CUDS, the indexing of a large number of photos takes conciderable time. 
+Nvidia CUDA allows you to use your Nvidia videocard for extra processing power (if you have one). I was not looking for realtime results but even with CUDS, the indexing of a large number of photos takes considerable time. 
 
 Comparing faces (verify) regularly misses the mark. However, there is still a lot that can be tried to improve matches, for example: normalize image size, use grayscale, change parameters, or try other models.
 
@@ -149,6 +160,7 @@ Comparing faces (verify) regularly misses the mark. However, there is still a lo
 * https://buildingai.elementsofai.com/
 * https://www.codegenes.net/blog/face-detection-pytorch/
 * https://pypi.org/project/deepface/
+* https://synaxion.com
 * many others
 
 
