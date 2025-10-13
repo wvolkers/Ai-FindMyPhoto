@@ -64,9 +64,9 @@ Use "git clone" or download and extract the project files and folders to a locat
 
 Copy/paste this to your Python command prompt ( >>> ) and press enter.
 
-Note: modify 'dir_base' to match your folder. Use double backslashes ( \\\\ ) or forward slashes ( / ) on Windows.
+<b>Note:</b> modify 'dir_base' to match your folder. Use double backslashes ( \\\\ ) or forward slashes ( / ) on Windows.
 
-Note: this will initialize the libraries, variables and functions, it will not start the demo.
+<b>Note:</b> this will initialize the libraries, variables and functions, it will not start the demo.
 
 ```
 dir_base = 'C:\\Users\\wilbert\\Documents\\Wilbert_git\\Ai-FindMyPhoto'
@@ -77,9 +77,9 @@ exec(open( dir_base+'/FindMyPhoto.py' ).read())
 
 Copy/paste this to your Python command prompt ( >>> ) and press enter.
 
-Note: these are +-150 free-to-use photos of the Dutch royal family.
+<b>Note:</b> these are +-150 free-to-use photos of the Dutch royal family.
 
-Note: the mentioned variables have been set in the previous step.
+<b>Note:</b> the mentioned variables have been set in the previous step.
 
 ```
 download_files(url_prefix, url_list, dir_input)
@@ -89,7 +89,7 @@ download_files(url_prefix, url_list, dir_input)
 
 Copy/paste this to your Python command prompt ( >>> ) and press enter. Press CTRL+C to stop the proces.
 
-Note: if this is the first time you do this, then additional models will be downloaded automatically.
+<b>Note:</b> if this is the first time you do this, then additional models will be downloaded automatically.
 
 ```
 recognize_faces_show()
