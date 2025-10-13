@@ -70,11 +70,6 @@ Copy/paste this to your Python command prompt ( >>> ) and press enter.
 
 <b>Note:</b> modify 'dir_base' to match your folder. Use double backslashes ( \\\\ ) or forward slashes ( / ) on Windows.
 
-<<<<<<< HEAD
-<b>Note:</b> this will initialize the libraries, variables and functions, it will not start the demo.
-
-=======
->>>>>>> 713f6f98567fd2e41fd48baf7366241a22122ac0
 ```
 dir_base = 'C:\\Users\\wilbert\\Documents\\Wilbert_git\\Ai-FindMyPhoto'
 exec(open( dir_base+'/FindMyPhoto.py' ).read())
@@ -83,12 +78,6 @@ exec(open( dir_base+'/FindMyPhoto.py' ).read())
 #### Download example files --> ./input/*.jpg
 
 This function will download a number of example photos that will act as your photo library. It will contain about 150 photos of the Dutch Royal family.
-
-<<<<<<< HEAD
-<b>Note:</b> these are +-150 free-to-use photos of the Dutch royal family.
-=======
-Copy/paste this to your Python command prompt ( >>> ) and press enter.
->>>>>>> 713f6f98567fd2e41fd48baf7366241a22122ac0
 
 <b>Note:</b> the mentioned variables have been set in the previous step.
 
@@ -100,11 +89,7 @@ download_files(url_prefix, url_list, dir_input)
 
 Copy/paste this to your Python command prompt ( >>> ) and press enter. Press CTRL+C to stop the process.
 
-<<<<<<< HEAD
 <b>Note:</b> if this is the first time you do this, then additional models will be downloaded automatically.
-=======
-Note: if this is the first time you do this, then additional models and training data will be downloaded automatically.
->>>>>>> 713f6f98567fd2e41fd48baf7366241a22122ac0
 
 ```
 recognize_faces_show()
